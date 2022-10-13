@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'listings.apps.ListingsConfig',
     'realtor.apps.RealtorConfig',
+    'django_cleanup',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR, 'templates',
+            os.path.join(BASE_DIR, 'templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -127,11 +128,12 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [BASE_DIR / 'static']
-
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/images/'
 
 
 
